@@ -3,6 +3,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">
                     Data Dosen
@@ -29,7 +34,13 @@
                                     <td>{{$data->nama}}</td>
                                     <td>{{$data->nipd}}</td>
                                     <td>
-                                        Lihat | Edit | Hapus
+                                        <form action="{{route('dosen.destroy',$data->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{route('dosen.show',$data->id)}}" class="btn btn-outline-primary">Lihat</a> |
+                                            <a href="{{route('dosen.edit',$data->id)}}" class="btn btn-outline-success">Edit</a> |
+                                            <button type="submit" onclick="return confirm('Aapakah Anda Yakin?')" class="btn btn-outline-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

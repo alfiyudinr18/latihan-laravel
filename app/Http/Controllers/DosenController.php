@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class DosenController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -25,7 +29,7 @@ class DosenController extends Controller
         $dosen->nama = $request->nama;
         $dosen->nipd = $request->nipd;
         $dosen->save();
-        return redirect()->route('dosen.index')->with(['mesage'=>'Dosen berhasil dibuat']);
+        return redirect()->route('dosen.index')->with(['message'=>'Dosen berhasil dibuat']);
     }
 
     public function show($id)
@@ -46,12 +50,12 @@ class DosenController extends Controller
         $dosen->nama = $request->nama;
         $dosen->nipd = $request->nipd;
         $dosen->save();
-        return redirect()->route('dosen.index')->with(['mesage'=>'Dosen berhasil di edit']);
+        return redirect()->route('dosen.index')->with(['message'=>'Dosen berhasil di edit']);
     }
 
     public function destroy($id)
     {
         $dosen = Dosen::findOrFail($id)->delete();
-        return redirect()->route('dosen.index')->with(['mesage'=>'Dosen berhasil di hapus']);
+        return redirect()->route('dosen.index')->with(['message'=>'Dosen berhasil di hapus']);
     }
 }
