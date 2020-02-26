@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
     <title>Eloquent</title>
 </head>
 <body>
+@extends('layouts.template')
+@section('konten')
     @foreach($mahasiswa as $data)
         <h3>{{$data->nama}}<small>[{{$data->nim}}]</small></h3>
         <h5>Hobi :
@@ -22,5 +25,7 @@
             </li>
         </h4><hr>
     @endforeach
+@endsection
+    
 </body>
 </html>

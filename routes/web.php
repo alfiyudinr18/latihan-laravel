@@ -89,6 +89,27 @@ Route::get('relasi-join1',function(){
 });
 
 Route::get('latihan-eloquent',function(){
-    $mahasiswa = Mahasiswa::with('wali','dosen','hobi')->get()->take(1);
+    $mahasiswa = Mahasiswa::with('wali','dosen','hobi')->take(1)->get();
     return view('latihan-eloquent',compact('mahasiswa'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('beranda', function()
+{
+    return view('beranda');
+});
+
+Route::get('tentang', function()
+{
+    return view('tentang');
+});
+
+Route::get('kontak', function()
+{
+    return view('kontak');
+});
+
+Route::resource('dosen','DosenController');
