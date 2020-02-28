@@ -17,6 +17,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{url()->previous()}}" class="btn btn-success">Kembali</a>
                         </div>
                     </form>
                 </div>

@@ -5,27 +5,23 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Edit Data Mahasiswa
+                    Edit Data Wali
                 </div>
                 <div class="card-body">
-                    <form action="{{route('mahasiswa.update',$mhs->id)}}" method="post">
+                    <form action="{{route('wali.update',$wali->id)}}" method="post">
                      <!-- <input type="hidden" name="_method" value="PUT"> -->
                         @csrf
-                        @method('PUT');
+                        @method('PUT')
                         <div class="form-group">
-                            <label for="">Nama Mahasiswa</label>
-                            <input type="text" name="nama" value="{{$mhs->nama}}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="">No Induk Mahasiswa</label>
-                            <input type="text" name="nim" value="{{$mhs->nim}}" class="form-control" required>
+                            <label for="">Nama Wali</label>
+                            <input type="text" name="nama" value="{{$wali->nama}}" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Example select</label>
-                            <select class="form-control" name="id_dosen" id="exampleFormControlSelect1">
-                                @foreach($dosen as $data)
+                            <select class="form-control" name="id_mahasiswa" id="exampleFormControlSelect1">
+                                @foreach($mahasiswa as $data)
                                     <option value="{{$data->id}}"
-                                    @if($data->nama == $mhs->dosen->nama)
+                                    @if($data->nama == $wali->mahasiswa->nama)
                                         selected
                                     @endif
                                     >

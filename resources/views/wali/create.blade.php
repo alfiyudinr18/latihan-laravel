@@ -5,23 +5,19 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Tambah Data Mahasiswa
+                    Tambah Data Wali
                 </div>
                 <div class="card-body">
-                    <form action="{{route('mahasiswa.store')}}" method="post">
+                    <form action="{{route('wali.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Nama Mahasiswa</label>
+                            <label for="">Nama Wali</label>
                             <input type="text" name="nama" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="">No Induk Mahasiswa</label>
-                            <input type="text" name="nim" class="form-control" required>
-                        </div>
-                        <div class="form-group">
                             <label for="">Example select</label>
-                            <select class="form-control" name="id_dosen" id="">
-                                @foreach($dosen as $data)
+                            <select class="form-control" name="id_mahasiswa" id="">
+                                @foreach($mahasiswa as $data)
                                     <option value="{{$data->id}}">{{$data->nama}}</option>
                                 @endforeach
                             </select>

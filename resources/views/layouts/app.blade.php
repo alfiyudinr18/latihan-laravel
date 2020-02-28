@@ -44,6 +44,9 @@
                             <li class="nav-item">
                                 <a href="{{route('mahasiswa.index')}}" class="nav-link">Mahasiswa</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route('wali.index')}}" class="nav-link">Wali</a>
+                            </li>
                         @endguest
                     </ul>
 
